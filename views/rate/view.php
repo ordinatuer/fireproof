@@ -1,7 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\DetailView;
+//use yii\widgets\DetailView;
+use app\widgets\IfIsDetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Rate */
@@ -26,8 +27,9 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
-    <?= DetailView::widget([
+    <?= IfIsDetailView::widget([
         'model' => $model,
+        // оптимизировать и убрать это крокодилово
         'attributes' => [
             //'rate_id',
             [
@@ -39,8 +41,25 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'note',
                 'value' => ($model->note) ? $model->note : null,
                 'format' => 'ntext',
+                'visible' => (bool)$model->note,
             ],
-            'quantity',
+            [
+                'attribute' => 'quantity',
+                'visible' => (bool)$model->quantity,
+            ],
+            [
+                'attribute' => 'quantity_min',
+                'visible' => (bool)$model->quantity_min,
+            ],
+            [
+                'attribute' => 'quantity_max',
+                'visible' => (bool)$model->quantity_max,
+            ],
+            [
+                'attribute' => 'quantity_note',
+                'format' => 'ntext',
+                'visible' => (bool)$model->quantity_note,
+            ],
             [
                 'attribute' => 'sulute',
                 'value' => $model->protection->sulute,
@@ -49,7 +68,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'solvent',
                 'value' => $model->protection->solvent,
             ],
-            'layers',
+            [
+                'attribute' => 'layers',
+                'visible' => (bool)$model->layers,
+            ],
             'inter_layer',
             'ready',
         ],

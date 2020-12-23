@@ -17,6 +17,9 @@ use Yii;
  * @property int|null $layers
  * @property int|null $inter_layer
  * @property int|null $ready
+ * @property int|null $quantity_min
+ * @property int|null $quantity_max
+ * @property string|null $quantity_note
  *
  * @property Protection $protection
  */
@@ -36,8 +39,8 @@ class Rate extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['protection_id', 'quantity', 'sulute', 'solvent', 'layers', 'inter_layer', 'ready'], 'integer'],
-            [['description', 'note'], 'string'],
+            [['protection_id', 'quantity', 'quantity_min', 'quantity_max', 'sulute', 'solvent', 'layers', 'inter_layer', 'ready'], 'integer'],
+            [['description', 'note', 'quantity_note'], 'string'],
             [['protection_id'], 'exist', 'skipOnError' => true, 'targetClass' => Protection::className(), 'targetAttribute' => ['protection_id' => 'protection_id']],
         ];
     }
@@ -53,6 +56,9 @@ class Rate extends \yii\db\ActiveRecord
             'description' => 'Описание',
             'note' => 'Примечание',
             'quantity' => 'Расход',
+            'quantity_min' => 'Расход - минимальный',
+            'quantity_max' => 'Расход - максимальный',
+            'quantity_note' => 'Примечание по расходу',
             'sulute' => 'Доля концентрата',
             'solvent' => 'Доля растворителя',
             'layers' => 'Количество слоёв',

@@ -24,6 +24,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'quantity')->textInput() ?>
 
+    <?= $form->field($model, 'quantity_min')->textInput() ?>
+
+    <?= $form->field($model, 'quantity_max')->textInput() ?>
+
+    <?= $form->field($model, 'quantity_note')->textInput() ?>
+
     <?= $form->field($model, 'sulute')->textInput() ?>
 
     <?= $form->field($model, 'solvent')->textInput() ?>

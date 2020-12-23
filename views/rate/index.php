@@ -30,7 +30,20 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'description:ntext',
             //'note:ntext',
-            'quantity',
+            [
+                'attribute' => 'quantity',
+                'value' => function($value) {
+                    if ($value->quantity) {
+                        return $value->quantity;
+                    }
+                    
+                    if ($value->quantity_min AND $value->quantity_max) {
+                        return $value->quantity_min .' - '. $value->quantity_max;
+                    }
+
+                    return null;
+                },
+            ],
             //'sulute',
             //'solvent',
             'layers',
