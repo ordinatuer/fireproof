@@ -37,7 +37,7 @@ use yii\widgets\ActiveForm;
         },
     ]) ?>
 
-    <?= $form->field($model, 'toxic')->textInput() ?>
+    <?= $form->field($model, 'toxic')->dropDownList($model->toxicNames) ?>
 
     <?= $form->field($model, 't_work_max')->textInput() ?>
 

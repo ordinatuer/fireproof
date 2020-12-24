@@ -64,9 +64,23 @@ class Rate extends \yii\db\ActiveRecord
             'layers' => 'Количество слоёв',
             'inter_layer' => 'Сушка между слоями',
             'ready' => 'Полное высыхание',
+            'quantityName' => 'Расход',
         ];
     }
 
+
+    public function getQuantityName()
+    {
+        if ($this->quantity) {
+            return $this->quantity;
+        }
+
+        if ($this->quantity_min AND $this->quantity_max) {
+            return $this->quantity_min . ' - ' . $this->quantity_max;
+        }
+
+        return NULL;
+    }
     /**
      * Gets query for [[Protection]].
      *

@@ -4,6 +4,8 @@ namespace app\models;
 
 use Yii;
 use yii\helpers\ArrayHelper;
+use yii\data\ActiveDataProvider;
+use app\models\Rate;
 use app\components\BiKey;
 
 /**
@@ -153,7 +155,18 @@ class Protection extends \yii\db\ActiveRecord
             return $this->toxicNames[$this->toxic];
         }
 
-        return false;
+        return $this->toxicNames[1];
+    }
+
+    public function ratesDataProvider()
+    {
+        $dataProvider = new ActiveDataProvider([
+            'query' => Rate::find()->where([
+                'protection_id' => $this->protection_id,
+            ]),
+        ]);
+
+        return $dataProvider;
     }
 
     /**

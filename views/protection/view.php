@@ -2,7 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\grid\GridView;
 use app\helpers\Unit;
+use app\widgets\IfIsDetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Protection */
@@ -27,10 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
-    <?= DetailView::widget([
+    <?= IfIsDetailView::widget([
         'model' => $model,
         'attributes' => [
-            // 'protection_id',
             'name',
             'description:ntext',
             [
@@ -39,11 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return ($value->solution) ? 'Да' : 'Нет';
                 },
             ],
-            
             'ratio',
-            // 'sulute',
-            // 'solvent',
-            //'type',
             'typeName',
             'toxicName',
             Unit::celsius($model->t_work_max, 't_work_max'),
@@ -55,5 +52,33 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]) ?>
+
+    <?= GridView::widget([
+        'dataProvider' => $model->ratesDataProvider(),
+        'columns' => [
+            'description:ntext',
+            'quantityName',
+            [
+                'attribute' => 'sulute',
+                'value' => function($value) use ($model) {
+                    return ($value->sulute) ? $value->sulute : $model->sulute;
+                },
+                'visible' => (bool)$model->solution,
+            ],
+            [
+                'attribute' => 'solvent',
+                'value' => function($value) use ($model) {
+                    return ($value->solvent) ? $value->solvent : $model->solvent;
+                },
+                'visible' => (bool)$model->solution,
+            ],
+            'layers',
+            'inter_layer',
+            'ready',
+        ],
+        'layout' => "{items}",
+    ]);
+
+    ?>
 
 </div>

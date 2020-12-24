@@ -29,9 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= IfIsDetailView::widget([
         'model' => $model,
-        // оптимизировать и убрать это крокодилово
         'attributes' => [
-            //'rate_id',
             [
                 'attribute' => 'protection_id',
                 'value' => $model->protection->name,
@@ -43,22 +41,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'ntext',
                 'visible' => (bool)$model->note,
             ],
-            [
-                'attribute' => 'quantity',
-                'visible' => (bool)$model->quantity,
-            ],
-            [
-                'attribute' => 'quantity_min',
-                'visible' => (bool)$model->quantity_min,
-            ],
-            [
-                'attribute' => 'quantity_max',
-                'visible' => (bool)$model->quantity_max,
-            ],
+            
+            'quantity',
+            'quantity_min',
+            'quantity_max',
             [
                 'attribute' => 'quantity_note',
                 'format' => 'ntext',
-                'visible' => (bool)$model->quantity_note,
             ],
             [
                 'attribute' => 'sulute',
@@ -68,10 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'solvent',
                 'value' => $model->protection->solvent,
             ],
-            [
-                'attribute' => 'layers',
-                'visible' => (bool)$model->layers,
-            ],
+            'layers',
             'inter_layer',
             'ready',
         ],

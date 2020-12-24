@@ -20,9 +20,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            //'protection_id',
             'name',
             'description:ntext',
             [
@@ -33,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'ratio',
             'typeName',
-            //'toxic',
+            'toxicName',
             'typeAreaName',
 
             ['class' => 'yii\grid\ActionColumn'],
