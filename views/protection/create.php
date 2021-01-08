@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Protection */
 
-$this->title = 'Добавить новый огнезащитный состав';
-$this->params['breadcrumbs'][] = ['label' => 'Список составов', 'url' => ['index']];
+$this->title = Yii::t('app', 'Add new protection');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Protections list'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="protection-create">

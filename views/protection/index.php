@@ -6,7 +6,7 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Огнезащитные составы';
+$this->title = Yii::t('app', 'Protections list');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="protection-index">
@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Добавить новый огнезащитный состав', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Add new protection'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,7 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'solution',
                 'value' => function($value) {
-                    return ($value->solution) ? 'Да' : 'Нет';
+                    $val = ($value->solution) ? 'Yes' : 'No';
+                    return Yii::t('app', $val);
                 },
             ],
             'ratio',

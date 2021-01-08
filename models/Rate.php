@@ -52,19 +52,19 @@ class Rate extends \yii\db\ActiveRecord
     {
         return [
             'rate_id' => 'Rate ID',
-            'protection_id' => 'Состав',
-            'description' => 'Описание',
-            'note' => 'Примечание',
-            'quantity' => 'Расход',
-            'quantity_min' => 'Расход - минимальный',
-            'quantity_max' => 'Расход - максимальный',
-            'quantity_note' => 'Примечание по расходу',
-            'sulute' => 'Доля концентрата',
-            'solvent' => 'Доля растворителя',
-            'layers' => 'Количество слоёв',
-            'inter_layer' => 'Сушка между слоями',
-            'ready' => 'Полное высыхание',
-            'quantityName' => 'Расход',
+            'protection_id' => Yii::t('app', 'Protection'),
+            'description' => Yii::t('app', 'Description'),
+            'note' => Yii::t('app', 'Note'),
+            'quantity' => Yii::t('app', 'Quantity'),
+            'quantity_min' => Yii::t('app', 'Quantity - minimum'),
+            'quantity_max' => Yii::t('app', 'Quantity - maximum'),
+            'quantity_note' => Yii::t('app', 'Quantity - note'),
+            'sulute' => Yii::t('app', 'Solute ratio'),
+            'solvent' => Yii::t('app', 'Solvent ratio'),
+            'layers' => Yii::t('app', 'Layers'),
+            'inter_layer' => Yii::t('app', 'Inter layer'),
+            'ready' => Yii::t('app', 'Protection ready'),
+            'quantityName' => Yii::t('app', 'Quantity'),
         ];
     }
 

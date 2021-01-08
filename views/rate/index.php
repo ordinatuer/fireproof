@@ -6,7 +6,7 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Степени защиты';
+$this->title = Yii::t('app', 'Protections rate');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="rate-index">
@@ -14,28 +14,20 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Ещё степень защиты', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Add protections rate'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            //['class' => 'yii\grid\SerialColumn'],
-
-            //'rate_id',
             [
                 'attribute' => 'protection_id',
                 'value' => 'protection.name',
             ],
             'description:ntext',
-            //'note:ntext',
             'quantityName',
-            //'sulute',
-            //'solvent',
             'layers',
-            //'inter_layer',
-            //'ready',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

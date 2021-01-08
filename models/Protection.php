@@ -31,22 +31,38 @@ class Protection extends \yii\db\ActiveRecord
 {
     use BiKey;
 
-    public $types = [
-        1 => 'Дерево',
-        2 => 'Металл',
-        4 => 'Ткань',
-    ];
+    /**
+        const
+    */
+    public function getTypes()
+    {
+        return [
+            1 => Yii::t('app', 'Wood'),
+            2 => Yii::t('app', 'Metal'),
+            4 => Yii::t('app', 'Textile'),
+        ];
+    }
 
-    public $typeAreas = [
-        1 => 'Внутренние работы',
-        2 => 'Наружные работы',
-    ];
+    public function getTypeAreas()
+    {
+        return [
+            1 => Yii::t('app', 'Indoor works'),
+            2 => Yii::t('app', 'Outdoor works'),
+        ];
+    }
 
-    public $toxicNames = [
-        1 => 'Нет',
-        2 => 'Небольшая',
-        3 => 'Высокая',
-    ];
+    public function getToxicNames()
+    {
+        return [
+            1 => Yii::t('app', 'No'),
+            2 => Yii::t('app', 'Low'),
+            3 => Yii::t('app', 'High'),
+        ];
+    }
+
+    /**
+        ! const
+    */
 
     /**
      * {@inheritdoc}
@@ -84,23 +100,23 @@ class Protection extends \yii\db\ActiveRecord
     {
         return [
             'protection_id' => 'Protection ID',
-            'name' => 'Название',
-            'description' => 'Описание',
-            'solution' => 'Требуется приготовление',
-            'sulute' => 'Массовая доля концентрата',
-            'solvent' => 'Массовая доля растворителя',
-            'type' => 'Обрабатываемая поверхность',
-            'toxic' => 'Токсичность',
-            't_work_max' => 'Максимальная температура обработки',
-            't_work_min' => 'Минимальная температура обработки',
-            't_store_max' => 'Максимальная температура хранения',
-            't_store_min' => 'Минимальная температура хранения',
-            'type_area' => 'Область применения',
+            'name' => Yii::t('app', 'Name'),
+            'description' => Yii::t('app', 'Description'),
+            'solution' => Yii::t('app', 'Solution required'),
+            'sulute' => Yii::t('app', 'Mass fraction of concentrate'),
+            'solvent' => Yii::t('app', 'Mass fraction of solvent'),
+            'type' => Yii::t('app', 'Surface type'),
+            'toxic' => Yii::t('app', 'Toxic'),
+            't_work_max' => Yii::t('app', 'Maximum processing temperature'),
+            't_work_min' => Yii::t('app', 'Minimum processing temperature'),
+            't_store_max' => Yii::t('app', 'Maximum storage temperature'),
+            't_store_min' => Yii::t('app', 'Minimum storage temperature'),
+            'type_area' => Yii::t('app', 'Area type'),
 
-            'ratio' => 'Пропорции',
-            'typeName' => 'Поверхность',
-            'typeAreaName' => 'Применение',
-            'toxicName' => 'Токсичность',
+            'ratio' => Yii::t('app', 'Ratio'),
+            'typeName' => Yii::t('app', 'Surface'),
+            'typeAreaName' => Yii::t('app', 'Area'),
+            'toxicName' => Yii::t('app', 'Toxic'),
         ];
     }
 

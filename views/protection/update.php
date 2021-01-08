@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Protection */
 
-$this->title = 'Update Protection: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Protections', 'url' => ['index']];
+$this->title = Yii::t('app', 'Update') . ': ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Protections list'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->protection_id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="protection-update">
 

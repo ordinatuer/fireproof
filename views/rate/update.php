@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Rate */
 
-$this->title = 'Update Rate: ' . $model->rate_id;
-$this->params['breadcrumbs'][] = ['label' => 'Rates', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->rate_id, 'url' => ['view', 'id' => $model->rate_id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = Yii::t('app', 'Update') . ': ' . Yii::t('app', 'Protections rate') . ' ' . $model->protection->name;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Protections rates'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->protection->name, 'url' => ['view', 'id' => $model->rate_id]];
+$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="rate-update">
 

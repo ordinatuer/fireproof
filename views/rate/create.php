@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Rate */
 
-$this->title = 'Ещё степень защиты';
-$this->params['breadcrumbs'][] = ['label' => 'Степенизащиты', 'url' => ['index']];
+$this->title = Yii::t('app', 'Add protections rate');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Protections rate'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="rate-create">

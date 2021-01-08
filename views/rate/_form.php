@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?php echo $form->field($model, 'protection_id')
         ->dropDownList($names, [
-            'prompt' => 'Выберите состав',
+            'prompt' => Yii::t('app', 'Select protection'),
         ]);
     ?>
 
@@ -41,7 +41,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'ready')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Add'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

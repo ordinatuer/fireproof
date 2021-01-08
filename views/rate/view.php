@@ -1,14 +1,13 @@
 <?php
 
 use yii\helpers\Html;
-//use yii\widgets\DetailView;
 use app\widgets\IfIsDetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Rate */
 
 $this->title = $model->protection->name;
-$this->params['breadcrumbs'][] = ['label' => 'Степени защиты', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Protections rates'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -21,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete', ['delete', 'id' => $model->rate_id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => Yii::t('app', 'Confirm delete'),
                 'method' => 'post',
             ],
         ]) ?>
